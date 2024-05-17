@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>旋转木马图片</title>
+    <style>
+        body{
+            width: 100vw;
+            height: 100vh;
+            background-color: black;
+            display: flex; /*弹性盒布局*/
+            justify-content: center;   /*主轴的中间位置排列*/
+            perspective: 1500px; /*开启透视*/
+        }
+        #pic{  /* div样式 */
+            margin-top: 300px;
+            display: flex;
+            width: 350px;
+            height: 200px;
+            transform-style: preserve-3d;  /* 对他里面的子元神开启一个三维的空间*/
+            animation: xuanzhuang 20s linear infinite;
+        }
+        #pic:hover{
+            cursor: pointer;  /*设置小手*/
+            animation-play-state: paused;   /*触碰暂停*/
+        }
+        @keyframes xuanzhuang{  /*关键帧动画规则定义,元素将从初始状态开始，顺时针旋转 360 度到达结束状态。*/
+            from{
+                transform: rotateY(0deg);
+            }
+            to{
+                transform: rotateY(360deg);
+            }
+        }
+        #pic img{  /* 图片样式 */
+            position: absolute;  /*图片重叠*/
+            width: 350px;
+            height: 200px;
+            -webkit-box-reflect: below 15px -webkit-linear-gradient(transparent 10%,rgba(255,255,255,0.3)); 
+            /*添加下方阴影，间距为15px，加渐变色（前百分之十是透明的，后百分之九十为白色，加百分之0.3的透明度）*/
+        }
+        
+        #pic img:nth-child(1){
+            transform: translateZ(500px); /*设置Z轴*/
+        }
+        #pic img:nth-child(2){
+            transform:rotateY(60deg) translateZ(500px);
+        }
+        #pic img:nth-child(3){
+            transform:rotateY(120deg) translateZ(500px);
+        }
+        #pic img:nth-child(4){
+            transform:rotateY(180deg) translateZ(500px);
+        }
+        #pic img:nth-child(5){
+            transform:rotateY(240deg) translateZ(500px);
+        }
+        #pic img:nth-child(6){
+            transform:rotateY(300deg) translateZ(500px);
+        }
+        /*y轴旋转的角度分别是60的倍数，这样子刚好围成一个圈，旋转完之后在延当前的z轴来进行平移500像素*/
+    </style>
+</head>
+<body>
+    
+    <div id="pic">
+       <img src="tupian/bbbb.jpg" >
+       <img src="tupian/dfesfsa.gif" >
+       <img src="tupian/ggggf.gif" >
+       <img src="tupian/ggggg.gif" >
+       <img src="tupian/preview - 副本.jpg" >
+       <img src="tupian/preview.gif" >
+     
+    </div>
+    
+</body>
+</html>
